@@ -10,10 +10,12 @@ class MuseumApp : Application() {
     override fun onCreate() {
         super.onCreate()
         initKoin(
-            module {
-                factory { ListViewModel(get()) }
-                factory { DetailViewModel(get()) }
-            }
+            listOf(
+                module {
+                    factory { ListViewModel(get()) }
+                    factory { DetailViewModel(get()) }
+                }
+            )
         )
     }
 }
