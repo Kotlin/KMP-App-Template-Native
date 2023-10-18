@@ -39,6 +39,7 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.atomicfu)
             implementation(libs.koin.core)
+            api(libs.kmm.viewmodel)
         }
     }
 }

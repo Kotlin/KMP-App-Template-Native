@@ -1,4 +1,3 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.compose.ExperimentalComposeLibrary
 
 plugins {
@@ -23,6 +22,10 @@ kotlin {
             implementation(libs.compose.ui)
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.androidx.viewmodel.compose)
+            implementation(libs.androidx.navigation.compose)
+            implementation(libs.koin.androidx.compose)
+            implementation(libs.coil.compose)
         }
         commonMain.dependencies {
             implementation(projects.shared)
