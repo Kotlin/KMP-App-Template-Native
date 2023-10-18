@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinxSerialization)
 }
 
 kotlin {
@@ -14,7 +15,7 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     androidTarget {
         compilations.all {
             kotlinOptions {
@@ -22,10 +23,20 @@ kotlin {
             }
         }
     }
-    
+
     sourceSets {
+        androidMain.dependencies {
+            implementation(libs.ktor.client.okhttp)
+        }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
+        }
         commonMain.dependencies {
-            // put your Multiplatform dependencies here
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.atomicfu)
+            implementation(libs.koin.core)
         }
     }
 }
