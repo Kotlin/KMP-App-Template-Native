@@ -63,14 +63,13 @@ struct ObjectFrame: View {
             .aspectRatio(1, contentMode: .fit)
             
             Text(obj.title)
-                .font(.title2)
+                .font(.headline)
             
             Text(obj.artistDisplayName)
                 .font(.subheadline)
             
             Text(obj.objectDate)
-                .font(.subheadline)
-                .italic()
+                .font(.caption)
         }
     }
 }

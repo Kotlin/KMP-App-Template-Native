@@ -1,6 +1,5 @@
 package com.jetbrains.kmpapp.screens
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -24,7 +23,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.jetbrains.kmpapp.R
@@ -72,17 +74,10 @@ private fun ObjectDetails(
 
             SelectionContainer {
                 Column(Modifier.padding(12.dp)) {
-                    Text(obj.title, style = MaterialTheme.typography.h5)
-                    Text(obj.artistDisplayName, style = MaterialTheme.typography.h6)
-
-                    Text(
-                        obj.objectDate,
-                        fontStyle = FontStyle.Italic,
-                        style = MaterialTheme.typography.subtitle1
-                    )
-
-                    Spacer(Modifier.height(12.dp))
-
+                    Text(obj.title, style = MaterialTheme.typography.h6)
+                    Spacer(Modifier.height(6.dp))
+                    LabeledInfo(stringResource(R.string.label_artist), obj.artistDisplayName)
+                    LabeledInfo(stringResource(R.string.label_date), obj.objectDate)
                     LabeledInfo(stringResource(R.string.label_dimensions), obj.dimensions)
                     LabeledInfo(stringResource(R.string.label_medium), obj.medium)
                     LabeledInfo(stringResource(R.string.label_department), obj.department)
@@ -101,8 +96,14 @@ private fun LabeledInfo(
     modifier: Modifier = Modifier,
 ) {
     Column(modifier.padding(vertical = 4.dp)) {
-        Text(label, style = MaterialTheme.typography.subtitle2)
-        Spacer(Modifier.height(2.dp))
-        Text(data, style = MaterialTheme.typography.body1)
+        Spacer(Modifier.height(6.dp))
+        Text(
+            buildAnnotatedString {
+                withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                    append("$label: ")
+                }
+                append(data)
+            }
+        )
     }
 }

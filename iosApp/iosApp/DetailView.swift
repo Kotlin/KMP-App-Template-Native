@@ -49,14 +49,9 @@ struct ObjectDetails: View {
                 VStack(alignment: .leading, spacing: 6) {
                     Text(obj.title)
                         .font(.title)
-                    Text(obj.artistDisplayName)
-                        .font(.headline)
-                    Text(obj.objectDate)
-                        .font(.subheadline)
-                        .italic()
                     
-                    Spacer().frame(height: 4)
-                    
+                    LabeledInfo(label: "Artist", data: obj.artistDisplayName)
+                    LabeledInfo(label: "Date", data: obj.objectDate)
                     LabeledInfo(label: "Dimensions", data: obj.dimensions)
                     LabeledInfo(label: "Medium", data: obj.medium)
                     LabeledInfo(label: "Department", data: obj.department)
@@ -74,9 +69,7 @@ struct LabeledInfo: View {
     var data: String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text(label).font(.subheadline)
-            Text(data).font(.body)
-        }.padding(.vertical, 4)
+        Spacer()
+        Text("**\(label):** \(data)")
     }
 }
