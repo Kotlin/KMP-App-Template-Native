@@ -61,7 +61,7 @@ private fun ObjectDetails(
         ) {
             AsyncImage(
                 model = obj.primaryImageSmall,
-                contentDescription = null,
+                contentDescription = obj.title,
                 contentScale = ContentScale.FillWidth,
                 modifier = Modifier
                     .fillMaxWidth()

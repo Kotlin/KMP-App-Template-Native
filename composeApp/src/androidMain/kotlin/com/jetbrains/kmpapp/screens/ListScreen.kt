@@ -70,7 +70,7 @@ private fun ObjectFrame(
     ) {
         AsyncImage(
             model = obj.primaryImageSmall,
-            contentDescription = null,
+            contentDescription = obj.title,
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .fillMaxWidth()
