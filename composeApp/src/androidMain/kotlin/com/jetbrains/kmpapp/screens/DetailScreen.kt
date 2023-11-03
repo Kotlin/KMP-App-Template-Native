@@ -23,9 +23,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.jetbrains.kmpapp.R
 import com.jetbrains.kmpapp.data.MuseumObject
 import org.koin.androidx.compose.koinViewModel
 
@@ -48,7 +50,7 @@ private fun ObjectDetails(
         topBar = {
             TopAppBar(backgroundColor = Color.White) {
                 IconButton(onClick = onBackClick) {
-                    Icon(Icons.Default.ArrowBack, "Back")
+                    Icon(Icons.Default.ArrowBack, stringResource(R.string.back))
                 }
             }
         },
@@ -81,11 +83,11 @@ private fun ObjectDetails(
 
                     Spacer(Modifier.height(12.dp))
 
-                    LabeledInfo("Dimensions", obj.dimensions)
-                    LabeledInfo("Medium", obj.medium)
-                    LabeledInfo("Department", obj.department)
-                    LabeledInfo("Repository", obj.repository)
-                    LabeledInfo("Credits", obj.creditLine)
+                    LabeledInfo(stringResource(R.string.label_dimensions), obj.dimensions)
+                    LabeledInfo(stringResource(R.string.label_medium), obj.medium)
+                    LabeledInfo(stringResource(R.string.label_department), obj.department)
+                    LabeledInfo(stringResource(R.string.label_repository), obj.repository)
+                    LabeledInfo(stringResource(R.string.label_credits), obj.creditLine)
                 }
             }
         }
