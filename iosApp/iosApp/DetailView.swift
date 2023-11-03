@@ -1,6 +1,6 @@
 import Foundation
 import SwiftUI
-import shared
+import Shared
 
 struct DetailView: View {
     let viewModel = DetailViewModel(

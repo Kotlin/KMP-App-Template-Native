@@ -1,6 +1,6 @@
 import SwiftUI
 import KMMViewModelSwiftUI
-import shared
+import Shared
 
 struct ListView: View {
     let viewModel = ListViewModel(

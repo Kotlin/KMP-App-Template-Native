@@ -23,7 +23,7 @@ kamel = "0.7.3"
 atomicfu = "0.22.0"
 coil = "2.4.0"
 kmmViewmodel = "1.0.0-ALPHA-14"
-skie = "0.5.0"
+skie = "0.5.3"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
