@@ -1,5 +1,6 @@
 package com.jetbrains.kmpapp.screens
 
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -31,10 +32,17 @@ import org.koin.androidx.compose.koinViewModel
 fun ListScreen(navigateToDetails: (objectId: Int) -> Unit) {
     val viewModel: ListViewModel = koinViewModel()
     val objects by viewModel.objects.collectAsState()
-    ObjectGrid(
-        objects = objects,
-        onObjectClick = navigateToDetails,
-    )
+
+    AnimatedContent(objects.isNotEmpty()) { objectsAvailable ->
+        if (objectsAvailable) {
+            ObjectGrid(
+                objects = objects,
+                onObjectClick = navigateToDetails,
+            )
+        } else {
+            EmptyScreenContent(Modifier.fillMaxSize())
+        }
+    }
 }
 
 @Composable

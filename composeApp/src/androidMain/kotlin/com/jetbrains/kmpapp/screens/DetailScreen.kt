@@ -1,8 +1,10 @@
 package com.jetbrains.kmpapp.screens
 
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -19,6 +21,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -36,9 +39,14 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun DetailScreen(objectId: Int, navigateBack: () -> Unit) {
     val viewModel: DetailViewModel = koinViewModel()
-    val obj = viewModel.getObject(objectId).collectAsState(initial = null).value
-    if (obj != null) {
-        ObjectDetails(obj, navigateBack)
+    val obj by viewModel.getObject(objectId).collectAsState(initial = null)
+
+    AnimatedContent(obj != null) { objectAvailable ->
+        if (objectAvailable) {
+            ObjectDetails(obj!!, onBackClick = navigateBack)
+        } else {
+            EmptyScreenContent(Modifier.fillMaxSize())
+        }
     }
 }
 

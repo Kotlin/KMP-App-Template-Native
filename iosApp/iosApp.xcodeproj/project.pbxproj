@@ -48,6 +48,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		39328EC967C5AC80B0A77FB9 /* xcschemes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = xcschemes;
+			path = iosApp.xcodeproj/project.xcworkspace/xcuserdata/zsmb.xcuserdatad/xcschemes;
+			sourceTree = "<group>";
+		};
 		42799AB246E5F90AF97AA0EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +70,7 @@
 				7555FF7D242A565900829871 /* iosApp */,
 				7555FF7C242A565900829871 /* Products */,
 				42799AB246E5F90AF97AA0EF /* Frameworks */,
+				39328EC967C5AC80B0A77FB9 /* xcschemes */,
 			);
 			sourceTree = "<group>";
 		};

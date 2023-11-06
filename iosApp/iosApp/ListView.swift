@@ -15,21 +15,29 @@ struct ListView: View {
     ]
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
-                    ForEach(objects, id: \.objectID) { item in
-                        NavigationLink(destination: DetailView(objectId: item.objectID)) {
-                            ObjectFrame(obj: item, onClick: {})
-                        }.buttonStyle(PlainButtonStyle())
+        ZStack {
+            if !objects.isEmpty {
+                NavigationStack {
+                    ScrollView {
+                        LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
+                            ForEach(objects, id: \.objectID) { item in
+                                NavigationLink(destination: DetailView(objectId: item.objectID)) {
+                                    ObjectFrame(obj: item, onClick: {})
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                            }
+                        }
+                        .padding(.horizontal)
                     }
                 }
-                .padding(.horizontal)
+                
+            } else {
+                Text("No data available")
+                
             }
-            .task {
-                for await objs in viewModel.objects {
-                    objects = objs
-                }
+        }.task {
+            for await objs in viewModel.objects {
+                objects = objs
             }
         }
     }
