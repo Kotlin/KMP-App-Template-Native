@@ -1,17 +1,25 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+# Kotlin Multiplatform app template
 
-* `/shared` is for the code that will be shared between all targets in the project.
-  The most important subfolder is `commonMain`. If preferred, you can add code to the platform-specific folders here too.
+This is a basic Kotlin Multiplatform app template for Android and iOS. It includes shared business logic and data handling, and native UI implementations using Jetpack Compose and SwiftUI.
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
+> The template is also available [with shared UI written in Compose Multiplatform](https://github.com/kotlin/KMP-App-Template).
 
-* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform, 
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+![Screenshots of the app]()
 
+### Technologies
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+The data displayed by the app is from [The Metropolitan Museum of Art Collection API](https://metmuseum.github.io/).
+
+The app uses the following multiplatform dependencies in its implementation:
+
+- [Ktor](https://ktor.io/) for networking
+- [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) for JSON handling
+- [Koin](https://github.com/InsertKoinIO/koin) for dependency injection
+- [SKIE](https://github.com/touchlab/SKIE) for smoother Swift interop
+- [KMM-ViewModel](https://github.com/rickclephas/KMM-ViewModel) for shared ViewModel implementations in common code
+
+And the following Android-specific dependencies:
+
+- [Jetpack Compose](https://developer.android.com/jetpack/compose)
+- [Navigation component](https://developer.android.com/jetpack/compose/navigation)
+- [Coil](https://github.com/coil-kt/coil) for image loading
