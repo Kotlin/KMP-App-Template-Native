@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KMP-App-Template-Native</string>
+    <string name="app_name">KMP App</string>
 
     <string name="label_title">Title</string>
     <string name="label_artist">Artist</string>
