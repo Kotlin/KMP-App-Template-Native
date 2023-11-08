@@ -30,10 +30,8 @@ struct ListView: View {
                         .padding(.horizontal)
                     }
                 }
-                
             } else {
                 Text("No data available")
-                
             }
         }.task {
             for await objs in viewModel.objects {
