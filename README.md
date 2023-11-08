@@ -4,7 +4,7 @@ This is a basic Kotlin Multiplatform app template for Android and iOS. It includ
 
 > The template is also available [with shared UI written in Compose Multiplatform](https://github.com/kotlin/KMP-App-Template).
 
-![Screenshots of the app]()
+![Screenshots of the app](images/screenshots.png)
 
 ### Technologies
 
