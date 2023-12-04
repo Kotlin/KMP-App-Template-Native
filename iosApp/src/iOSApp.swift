@@ -1,10 +1,10 @@
 import SwiftUI
-import Shared
+import kotlin
 
 @main
 struct iOSApp: App {
     init() {
-        KoinKt.doInitKoin()
+        KotlinHelperKt.startKoin()
     }
     
     var body: some Scene {

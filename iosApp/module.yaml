@@ -1,0 +1,4 @@
+product: ios/app
+
+dependencies:
+  - ../shared
