@@ -1,9 +1,11 @@
 import Foundation
 import SwiftUI
-import kotlin
+import shared
 
 struct DetailView: View {
-    let viewModel = KotlinHelperKt.createDetailViewModel()
+    let viewModel = DetailViewModel(
+        museumRepository: KoinDependencies().museumRepository
+    )
     
     let objectId: Int32
     

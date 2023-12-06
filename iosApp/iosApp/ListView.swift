@@ -1,9 +1,11 @@
 import SwiftUI
 import KMMViewModelSwiftUI
-import kotlin
+import shared
 
 struct ListView: View {
-    let viewModel = KotlinHelperKt.createListViewModel()
+    let viewModel = ListViewModel(
+        museumRepository: KoinDependencies().museumRepository
+    )
     
     @State
     var objects: [MuseumObject] = []
