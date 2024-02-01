@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "kmm-viewmodel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rickclephas/KMM-ViewModel",
+      "state" : {
+        "branch" : "master",
+        "revision" : "c3e1f05d4ac8d71e7922e8e1cdf91aa0ec20d2f7"
+      }
+    }
+  ],
+  "version" : 2
+}

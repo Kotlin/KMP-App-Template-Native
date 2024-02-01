@@ -1,44 +1,26 @@
 [versions]
-compose = "1.5.4"
-compose-plugin = "1.5.10"
-compose-compiler = "1.5.3"
-agp = "8.1.2"
+compose-compiler = "1.5.5"
+compose-plugin = "1.5.12"
+agp = "8.2.2"
 android-minSdk = "24"
 android-compileSdk = "34"
 android-targetSdk = "34"
 androidx-activityCompose = "1.8.0"
-androidx-navigationCompose = "2.7.4"
-androidx-viewmodelCompose = "2.6.2"
-androidx-core-ktx = "1.12.0"
-androidx-appcompat = "1.6.1"
-androidx-material = "1.10.0"
-androidx-constraintlayout = "2.1.4"
-androidx-test-junit = "1.1.5"
-androidx-espresso-core = "3.5.1"
+androidx-navigationCompose = "2.7.6"
+androidx-viewmodelCompose = "2.7.0"
+jetpack-compose-bom = "2024.01.00"
 kotlin = "1.9.20"
-junit = "4.13.2"
-koin = "3.5.0"
-ktor = "2.3.5"
-kamel = "0.7.3"
-coil = "2.4.0"
+koin = "3.5.3"
+ktor = "2.3.8"
+coil = "2.5.0"
 kmmViewmodel = "1.0.0-ALPHA-14"
-skie = "0.5.3"
+skie = "0.6.1"
 
 [libraries]
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
-compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
-androidx-test-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-junit" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-espresso-core" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
-androidx-material = { group = "com.google.android.material", name = "material", version.ref = "androidx-material" }
-androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "jetpack-compose-bom" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigationCompose" }
 androidx-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-viewmodelCompose" }
