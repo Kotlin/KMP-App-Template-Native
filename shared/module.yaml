@@ -1,22 +1,25 @@
-product: 
+product:
   type: lib
   platforms: [jvm, android, iosArm64, iosSimulatorArm64, iosX64]
 
-dependencies: 
-  - io.ktor:ktor-client-core:2.3.5
-  - io.ktor:ktor-client-content-negotiation:2.3.5
-  - io.ktor:ktor-serialization-kotlinx-json:2.3.5
-  - io.insert-koin:koin-core:3.5.0
-  - co.touchlab.skie:configuration-annotations:0.5.3
-  - com.rickclephas.kmm:kmm-viewmodel-core:1.0.0-ALPHA-14: exported
+dependencies:
+  - $libs.ktor.client.core
+  - $libs.ktor.client.content.negotiation
+  - $libs.ktor.serialization.kotlinx.json
+  - $libs.koin.core
+  - $libs.skie.annotations
+  - $libs.kmm.viewmodel: exported
 
-dependencies@android: 
-  - io.ktor:ktor-client-okhttp:2.3.5
+dependencies@android:
+  - $libs.ktor.client.okhttp
 
-dependencies@ios: 
-  - io.ktor:ktor-client-darwin:2.3.5
+dependencies@ios:
+  - $libs.ktor.client.darwin
 
-settings: 
+settings:
   compose: enabled
-  kotlin: 
+  kotlin:
     serialization: json
+  ios:
+    framework:
+      basename: shared
