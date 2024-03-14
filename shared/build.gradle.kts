@@ -6,6 +6,14 @@ plugins {
 }
 
 kotlin {
+    androidTarget {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "11"
+            }
+        }
+    }
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -16,16 +24,6 @@ kotlin {
             isStatic = true
         }
     }
-
-    androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "11"
-            }
-        }
-    }
-
-    jvmToolchain(11)
 
     sourceSets {
         androidMain.dependencies {
@@ -42,12 +40,21 @@ kotlin {
             implementation(libs.skie.annotations)
             api(libs.kmm.viewmodel)
         }
+
+        // Required by KMM-ViewModel
+        all {
+            languageSettings.optIn("kotlinx.cinterop.ExperimentalForeignApi")
+        }
     }
 }
 
 android {
     namespace = "com.jetbrains.kmpapp.shared"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
