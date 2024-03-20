@@ -1,20 +1,19 @@
 [versions]
-compose-compiler = "1.5.5"
-compose-plugin = "1.5.12"
 agp = "8.2.2"
 android-minSdk = "24"
 android-compileSdk = "34"
 android-targetSdk = "34"
-androidx-activityCompose = "1.8.0"
+androidx-activityCompose = "1.8.2"
 androidx-navigationCompose = "2.7.6"
 androidx-viewmodelCompose = "2.7.0"
-jetpack-compose-bom = "2024.01.00"
-kotlin = "1.9.20"
+jetpack-compose-bom = "2024.02.02"
+compose-plugin = "1.6.0"
+kotlin = "1.9.22"
 koin = "3.5.3"
-ktor = "2.3.8"
-coil = "2.5.0"
-kmmViewmodel = "1.0.0-ALPHA-14"
-skie = "0.6.1"
+ktor = "2.3.9"
+coil = "2.6.0"
+kmmViewmodel = "1.0.0-ALPHA-19"
+skie = "0.6.2"
 
 [libraries]
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "jetpack-compose-bom" }
