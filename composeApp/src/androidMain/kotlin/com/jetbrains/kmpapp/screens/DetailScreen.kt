@@ -18,7 +18,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -60,7 +60,7 @@ private fun ObjectDetails(
         topBar = {
             TopAppBar(backgroundColor = Color.White) {
                 IconButton(onClick = onBackClick) {
-                    Icon(Icons.Default.ArrowBack, stringResource(R.string.back))
+                    Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(R.string.back))
                 }
             }
         },
