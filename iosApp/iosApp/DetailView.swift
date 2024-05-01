@@ -5,29 +5,21 @@ import KMMViewModelSwiftUI
 import KMPNativeCoroutinesAsync
 
 struct DetailView: View {
-    let viewModel = DetailViewModel(
+    @StateViewModel
+    var viewModel = DetailViewModel(
         museumRepository: KoinDependencies().museumRepository
     )
 
     let objectId: Int32
 
-    @State
-    var object: MuseumObject? = nil
-
     var body: some View {
         VStack {
-            if let obj = object {
+            if let obj = viewModel.museumObject {
                 ObjectDetails(obj: obj)
             }
         }
-        .task {
-            do {
-                for try await obj in asyncSequence(for: viewModel.getObject(objectId: objectId)) {
-                    object = obj!
-                }
-            } catch {
-
-            }
+        .onAppear {
+            viewModel.setId(objectId: objectId)
         }
     }
 }

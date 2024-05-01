@@ -34,11 +34,13 @@ val dataModule = module {
     }
 }
 
-fun initKoin(modules: List<Module> = emptyList()) {
+fun initKoin() = initKoin(emptyList())
+
+fun initKoin(extraModules: List<Module>) {
     startKoin {
         modules(
             dataModule,
-            *modules.toTypedArray(),
+            *extraModules.toTypedArray(),
         )
     }
 }
