@@ -1,6 +1,5 @@
 package com.jetbrains.kmpapp.di
 
-import co.touchlab.skie.configuration.annotations.DefaultArgumentInterop
 import com.jetbrains.kmpapp.data.InMemoryMuseumStorage
 import com.jetbrains.kmpapp.data.KtorMuseumApi
 import com.jetbrains.kmpapp.data.MuseumApi
@@ -35,12 +34,13 @@ val dataModule = module {
     }
 }
 
-@DefaultArgumentInterop.Enabled
-fun initKoin(modules: List<Module> = emptyList()) {
+fun initKoin() = initKoin(emptyList())
+
+fun initKoin(extraModules: List<Module>) {
     startKoin {
         modules(
             dataModule,
-            *modules.toTypedArray(),
+            *extraModules.toTypedArray(),
         )
     }
 }

@@ -1,3 +1,4 @@
 plugins {
-    alias(libs.plugins.skie)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.kmpNativeCoroutines)
 }

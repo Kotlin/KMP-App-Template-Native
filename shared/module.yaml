@@ -7,7 +7,6 @@ dependencies:
   - $libs.ktor.client.content.negotiation
   - $libs.ktor.serialization.kotlinx.json
   - $libs.koin.core
-  - $libs.skie.annotations
   - $libs.kmm.viewmodel: exported
 
 dependencies@android:
@@ -17,9 +16,15 @@ dependencies@ios:
   - $libs.ktor.client.darwin
 
 settings:
-  compose: enabled
+  compose:
+    enabled: true
+    version: 1.6.2
   kotlin:
     serialization: json
+    optIns:
+        # Required by KMM-ViewModel
+      - "kotlinx.cinterop.ExperimentalForeignApi"
+      - "kotlin.experimental.ExperimentalObjCName"
   ios:
     framework:
       basename: shared

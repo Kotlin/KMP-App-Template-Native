@@ -1,36 +1,35 @@
 import Foundation
 import SwiftUI
 import shared
+import KMMViewModelSwiftUI
+import KMPNativeCoroutinesAsync
 
 struct DetailView: View {
-    let viewModel = DetailViewModel(
+    @StateViewModel
+    var viewModel = DetailViewModel(
         museumRepository: KoinDependencies().museumRepository
     )
-    
+
     let objectId: Int32
-    
-    @State
-    var object: MuseumObject? = nil
-    
+
     var body: some View {
         VStack {
-            if let obj = object {
+            if let obj = viewModel.museumObject {
                 ObjectDetails(obj: obj)
             }
-        }.task {
-            for await obj in viewModel.getObject(objectId: objectId) {
-                object = obj!
-            }
+        }
+        .onAppear {
+            viewModel.setId(objectId: objectId)
         }
     }
 }
 
 struct ObjectDetails: View {
     var obj: MuseumObject
-    
+
     var body: some View {
         ScrollView {
-            
+
             VStack {
                 AsyncImage(url: URL(string: obj.primaryImageSmall)) { phase in
                     switch phase {
@@ -45,11 +44,11 @@ struct ObjectDetails: View {
                         EmptyView()
                     }
                 }
-                
+
                 VStack(alignment: .leading, spacing: 6) {
                     Text(obj.title)
                         .font(.title)
-                    
+
                     LabeledInfo(label: "Artist", data: obj.artistDisplayName)
                     LabeledInfo(label: "Date", data: obj.objectDate)
                     LabeledInfo(label: "Dimensions", data: obj.dimensions)
@@ -67,7 +66,7 @@ struct ObjectDetails: View {
 struct LabeledInfo: View {
     var label: String
     var data: String
-    
+
     var body: some View {
         Spacer()
         Text("**\(label):** \(data)")

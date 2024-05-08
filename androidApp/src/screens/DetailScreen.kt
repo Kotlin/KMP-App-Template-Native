@@ -18,8 +18,9 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -39,7 +40,11 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun DetailScreen(objectId: Int, navigateBack: () -> Unit) {
     val viewModel: DetailViewModel = koinViewModel()
-    val obj by viewModel.getObject(objectId).collectAsState(initial = null)
+    val obj by viewModel.museumObject.collectAsState()
+
+    LaunchedEffect(objectId) {
+        viewModel.setId(objectId)
+    }
 
     AnimatedContent(obj != null) { objectAvailable ->
         if (objectAvailable) {
@@ -60,7 +65,7 @@ private fun ObjectDetails(
         topBar = {
             TopAppBar(backgroundColor = Color.White) {
                 IconButton(onClick = onBackClick) {
-                    Icon(Icons.Default.ArrowBack, stringResource(R.string.back))
+                    Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(R.string.back))
                 }
             }
         },

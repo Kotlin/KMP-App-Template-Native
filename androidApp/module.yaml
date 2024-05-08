@@ -5,16 +5,17 @@ dependencies:
   - $compose.runtime
   - $compose.foundation
   - $compose.material
-  - $libs.compose.ui
-  - $libs.compose.ui.tooling.preview
+  - $libs.androidx.compose.ui.tooling.preview
   - $libs.androidx.activity.compose
   - $libs.androidx.viewmodel.compose
   - $libs.androidx.navigation.compose
   - $libs.koin.androidx.compose
   - $libs.coil.compose
 
-settings: 
-  compose: enabled
-  android: 
+settings:
+  compose:
+    enabled: true
+    version: 1.6.2
+  android:
     applicationId: com.jetbrains.kmpapp
     namespace: com.jetbrains.kmpapp
