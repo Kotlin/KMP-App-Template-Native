@@ -7,13 +7,12 @@ androidx-activityCompose = "1.8.2"
 androidx-navigationCompose = "2.7.6"
 androidx-viewmodelCompose = "2.7.0"
 jetpack-compose-bom = "2024.02.02"
-compose-plugin = "1.6.0"
-kotlin = "1.9.22"
+compose-plugin = "1.6.2"
+kotlin = "1.9.23"
 koin = "3.5.3"
 ktor = "2.3.9"
 coil = "2.6.0"
 kmmViewmodel = "1.0.0-ALPHA-19"
-skie = "0.6.2"
 
 [libraries]
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "jetpack-compose-bom" }
@@ -32,7 +31,6 @@ ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negoti
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 kmm-viewmodel = { module = "com.rickclephas.kmm:kmm-viewmodel-core", version.ref = "kmmViewmodel" }
-skie-annotations = { module = "co.touchlab.skie:configuration-annotations", version.ref = "skie" }
 
 [plugins]
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
@@ -40,4 +38,5 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-skie = { id = "co.touchlab.skie", version.ref = "skie" }
+ksp = { id = "com.google.devtools.ksp", version = "1.9.23-1.0.20" }
+kmpNativeCoroutines = { id = "com.rickclephas.kmp.nativecoroutines", version = "1.0.0-ALPHA-28" }
