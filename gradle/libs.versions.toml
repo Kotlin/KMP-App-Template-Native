@@ -1,24 +1,21 @@
 [versions]
 agp = "8.2.2"
-android-minSdk = "24"
-android-compileSdk = "34"
-android-targetSdk = "34"
-androidx-activityCompose = "1.8.2"
-androidx-navigationCompose = "2.7.6"
+androidx-activityCompose = "1.9.0"
+androidx-navigationCompose = "2.7.7"
 androidx-viewmodelCompose = "2.7.0"
-jetpack-compose-bom = "2024.02.02"
+androidx-ui-tooling = "1.6.7"
 compose-plugin = "1.6.2"
 kotlin = "1.9.23"
 koin = "3.5.3"
-ktor = "2.3.9"
+ksp = "1.9.23-1.0.20"
+ktor = "2.3.10"
 coil = "2.6.0"
 kmmViewmodel = "1.0.0-ALPHA-19"
+kmpNativeCoroutines = "1.0.0-ALPHA-28"
 
 [libraries]
-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "jetpack-compose-bom" }
-compose-ui = { module = "androidx.compose.ui:ui" }
-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "androidx-ui-tooling" }
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "androidx-ui-tooling" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigationCompose" }
 androidx-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-viewmodelCompose" }
@@ -38,5 +35,5 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-ksp = { id = "com.google.devtools.ksp", version = "1.9.23-1.0.20" }
-kmpNativeCoroutines = { id = "com.rickclephas.kmp.nativecoroutines", version = "1.0.0-ALPHA-28" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kmpNativeCoroutines = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "kmpNativeCoroutines" }
