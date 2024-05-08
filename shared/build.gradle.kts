@@ -51,12 +51,12 @@ kotlin {
 
 android {
     namespace = "com.jetbrains.kmpapp.shared"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    compileSdk = 34
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
     defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
+        minSdk = 24
     }
 }

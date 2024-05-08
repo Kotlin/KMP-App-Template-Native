@@ -17,9 +17,7 @@ kotlin {
 
     sourceSets {
         androidMain.dependencies {
-            implementation(project.dependencies.platform(libs.compose.bom))
-            implementation(libs.compose.ui)
-            implementation(libs.compose.ui.tooling.preview)
+            implementation(libs.androidx.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.viewmodel.compose)
             implementation(libs.androidx.navigation.compose)
@@ -27,19 +25,20 @@ kotlin {
             implementation(libs.coil.compose)
         }
         commonMain.dependencies {
-            implementation(projects.shared)
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
-            @OptIn(ExperimentalComposeLibrary::class)
+            implementation(compose.ui)
             implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
+            implementation(projects.shared)
         }
     }
 }
 
 android {
     namespace = "com.jetbrains.kmpapp"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    compileSdk = 34
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")
@@ -47,8 +46,8 @@ android {
 
     defaultConfig {
         applicationId = "com.jetbrains.kmpapp"
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
+        minSdk = 24
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
     }
@@ -67,6 +66,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
     dependencies {
-        debugImplementation(libs.compose.ui.tooling)
+        debugImplementation(libs.androidx.compose.ui.tooling)
     }
 }
