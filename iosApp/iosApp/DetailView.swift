@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 import shared
-import KMMViewModelSwiftUI
+import KMPObservableViewModelSwiftUI
 import KMPNativeCoroutinesAsync
 
 struct DetailView: View {

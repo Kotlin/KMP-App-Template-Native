@@ -1,22 +1,22 @@
 {
-  "originHash" : "e1030e6f53e6298957345269bf07e82f8fb447ad2a2e837e65cf696422079ba7",
+  "originHash" : "db79fcc1e89ddda40b63c6b4784113d9a3818a7e51c1cbcb2a074b98d190aa0f",
   "pins" : [
-    {
-      "identity" : "kmm-viewmodel",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/rickclephas/KMM-ViewModel",
-      "state" : {
-        "revision" : "5122024085c468d006c66afc3ae37f233f88ec1f",
-        "version" : "1.0.0-ALPHA-15"
-      }
-    },
     {
       "identity" : "kmp-nativecoroutines",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rickclephas/KMP-NativeCoroutines.git",
       "state" : {
-        "revision" : "c474d25d5f7570000c6cec4eaee5007d7ac021d4",
-        "version" : "1.0.0-ALPHA-21-spm-async"
+        "revision" : "016d1fe71e2938404f16a76ae5118ba44793c5fa",
+        "version" : "1.0.0-ALPHA-29-spm-async"
+      }
+    },
+    {
+      "identity" : "kmp-observableviewmodel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rickclephas/KMP-ObservableViewModel",
+      "state" : {
+        "revision" : "f18dcd23199915f7134db9ef5b0d4425bf4edb91",
+        "version" : "1.0.0-BETA-1"
       }
     }
   ],
