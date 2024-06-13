@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 class MuseumRepository(
     private val museumApi: MuseumApi,
     private val museumStorage: MuseumStorage,
-    ) {
+) {
     private val scope = CoroutineScope(SupervisorJob())
 
     fun initialize() {
