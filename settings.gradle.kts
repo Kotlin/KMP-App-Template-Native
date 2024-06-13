@@ -24,11 +24,7 @@ dependencyResolutionManagement {
 }
 
 plugins {
-<<<<<<< HEAD
-    id("org.jetbrains.amper.settings.plugin").version("0.3.0")
-=======
     id("org.jetbrains.amper.settings.plugin").version("0.3.1")
->>>>>>> c9f4956 (Update Amper to 0.3.1)
 }
 
 include(":shared")
