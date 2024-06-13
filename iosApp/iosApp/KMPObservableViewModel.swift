@@ -1,4 +1,4 @@
 import KMPObservableViewModelCore
-import shared
+import Shared
 
 extension Kmp_observableviewmodel_coreViewModel: ViewModel { }
