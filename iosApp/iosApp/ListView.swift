@@ -1,6 +1,6 @@
 import SwiftUI
-import KMMViewModelSwiftUI
 import KMPNativeCoroutinesAsync
+import KMPObservableViewModelSwiftUI
 import Shared
 
 struct ListView: View {

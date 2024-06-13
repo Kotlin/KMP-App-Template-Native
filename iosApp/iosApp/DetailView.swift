@@ -1,8 +1,8 @@
 import Foundation
 import SwiftUI
 import Shared
-import KMMViewModelSwiftUI
 import KMPNativeCoroutinesAsync
+import KMPObservableViewModelSwiftUI
 
 struct DetailView: View {
     @StateViewModel
