@@ -1,4 +1,4 @@
-product: android/app
+product: android/app    
 
 dependencies: 
   - ../shared
