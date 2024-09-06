@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeCompiler)
-    alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.composeMultiplatform)
 }
 
 kotlin {
@@ -41,10 +41,6 @@ android {
     namespace = "com.jetbrains.kmpapp"
     compileSdk = 34
 
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    sourceSets["main"].res.srcDirs("src/androidMain/res")
-    sourceSets["main"].resources.srcDirs("src/commonMain/resources")
-
     defaultConfig {
         applicationId = "com.jetbrains.kmpapp"
         minSdk = 24
@@ -66,10 +62,8 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    buildFeatures {
-        compose = true
-    }
-    dependencies {
-        debugImplementation(libs.androidx.compose.ui.tooling)
-    }
+}
+
+dependencies {
+    debugImplementation(libs.androidx.compose.ui.tooling)
 }

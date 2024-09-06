@@ -1,15 +1,15 @@
 [versions]
-agp = "8.5.0"
-androidx-activityCompose = "1.9.0"
+agp = "8.6.0"
+androidx-activityCompose = "1.9.2"
 androidx-navigationCompose = "2.7.7"
-androidx-ui-tooling = "1.6.8"
+androidx-ui-tooling = "1.7.0"
 androidx-viewmodelCompose = "2.8.3"
 coil = "2.6.0"
-compose-plugin = "1.6.11"
-kmpObservableViewmodel = "1.0.0-BETA-3"
-kmpNativeCoroutines = "1.0.0-ALPHA-31"
+compose-multiplatform = "1.6.11"
+kmpObservableViewmodel = "1.0.0-BETA-5"
+kmpNativeCoroutines = "1.0.0-ALPHA-35"
 koin = "3.5.6"
-kotlin = "2.0.0"
+kotlin = "2.0.20"
 ksp = "2.0.0-1.0.22"
 ktor = "2.3.12"
 
@@ -33,7 +33,7 @@ ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 kmpNativeCoroutines = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "kmpNativeCoroutines" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
