@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
@@ -72,9 +73,7 @@ private fun ObjectDetails(
                 }
             }
         },
-        modifier = modifier.padding(
-            WindowInsets.systemBars.asPaddingValues()
-        ),
+        modifier = modifier.windowInsetsPadding(WindowInsets.systemBars),
     ) { paddingValues ->
         Column(
             Modifier
