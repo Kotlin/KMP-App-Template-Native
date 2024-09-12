@@ -2,21 +2,11 @@ package com.jetbrains.kmpapp.screens
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
@@ -58,13 +48,13 @@ private fun ObjectDetails(
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(backgroundColor = Color.White) {
+            TopAppBar(backgroundColor = MaterialTheme.colors.background) {
                 IconButton(onClick = onBackClick) {
                     Icon(Icons.Default.ArrowBack, stringResource(R.string.back))
                 }
             }
         },
-        modifier = modifier,
+        modifier = modifier.windowInsetsPadding(WindowInsets.systemBars),
     ) { paddingValues ->
         Column(
             Modifier
