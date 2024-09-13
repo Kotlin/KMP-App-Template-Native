@@ -1,19 +1,19 @@
 import SwiftUI
-import KMMViewModelSwiftUI
+import KMPObservableViewModelSwiftUI
 import shared
 
 struct ListView: View {
     let viewModel = ListViewModel(
         museumRepository: KoinDependencies().museumRepository
     )
-    
+
     @State
     var objects: [MuseumObject] = []
-    
+
     let columns = [
         GridItem(.adaptive(minimum: 120), alignment: .top)
     ]
-    
+
     var body: some View {
         ZStack {
             if !objects.isEmpty {
@@ -44,7 +44,7 @@ struct ListView: View {
 struct ObjectFrame: View {
     let obj: MuseumObject
     let onClick: () -> Void
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             GeometryReader { geometry in
@@ -67,13 +67,13 @@ struct ObjectFrame: View {
                 }
             }
             .aspectRatio(1, contentMode: .fit)
-            
+
             Text(obj.title)
                 .font(.headline)
-            
+
             Text(obj.artistDisplayName)
                 .font(.subheadline)
-            
+
             Text(obj.objectDate)
                 .font(.caption)
         }

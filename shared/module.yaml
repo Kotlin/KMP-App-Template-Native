@@ -8,7 +8,7 @@ dependencies:
   - $libs.ktor.serialization.kotlinx.json
   - $libs.koin.core
   - $libs.skie.annotations
-  - $libs.kmm.viewmodel: exported
+  - $libs.kmp.observable.viewmodel: exported
 
 dependencies@android:
   - $libs.ktor.client.okhttp
@@ -20,6 +20,10 @@ settings:
   compose: enabled
   kotlin:
     serialization: json
+    optIns:
+        # Required by KMP-ObservableViewModel
+      - "kotlinx.cinterop.ExperimentalForeignApi"
+      - "kotlin.experimental.ExperimentalObjCName"
   ios:
     framework:
       basename: shared
