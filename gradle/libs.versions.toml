@@ -1,16 +1,17 @@
 [versions]
 agp = "8.6.0"
 androidx-activityCompose = "1.9.2"
-androidx-navigationCompose = "2.7.7"
-androidx-ui-tooling = "1.7.0"
-androidx-viewmodelCompose = "2.8.3"
-coil = "2.6.0"
+androidx-navigationCompose = "2.8.1"
+androidx-ui-tooling = "1.7.2"
+androidx-viewmodelCompose = "2.8.6"
+coil = "2.7.0"
 compose-multiplatform = "1.6.11"
 kmpObservableViewmodel = "1.0.0-BETA-5"
 kmpNativeCoroutines = "1.0.0-ALPHA-35"
-koin = "3.5.6"
+koin = "4.0.0"
 kotlin = "2.0.20"
-ksp = "2.0.0-1.0.22"
+kotlinx-serialization = "1.7.3"
+ksp = "2.0.20-1.0.25"
 ktor = "2.3.12"
 
 [libraries]
@@ -23,6 +24,7 @@ coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 kmp-observable-viewmodel = { module = "com.rickclephas.kmp:kmp-observableviewmodel-core", version.ref = "kmpObservableViewmodel" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }

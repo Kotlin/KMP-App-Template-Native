@@ -11,12 +11,13 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
+import androidx.navigation.toRoute
+import com.jetbrains.kmpapp.screens.DetailDestination
 import com.jetbrains.kmpapp.screens.DetailScreen
+import com.jetbrains.kmpapp.screens.ListDestination
 import com.jetbrains.kmpapp.screens.ListScreen
 
 class MainActivity : ComponentActivity() {
@@ -29,40 +30,6 @@ class MainActivity : ComponentActivity() {
                 enableEdgeToEdge()
             }
             App()
-        }
-    }
-}
-
-@Composable
-fun App() {
-    MaterialTheme(
-        colors = if (isSystemInDarkTheme()) darkColors() else lightColors()
-    ) {
-        Surface {
-            NavigationContent()
-        }
-    }
-}
-
-@Composable
-fun NavigationContent() {
-    val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "list") {
-        composable("list") {
-            ListScreen(navigateToDetails = { objectId ->
-                navController.navigate("details/$objectId")
-            })
-        }
-        composable(
-            "details/{objectId}",
-            arguments = listOf(navArgument("objectId") { type = NavType.IntType })
-        ) { backstack ->
-            DetailScreen(
-                objectId = backstack.arguments?.getInt("objectId")!!,
-                navigateBack = {
-                    navController.popBackStack()
-                }
-            )
         }
     }
 }

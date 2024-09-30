@@ -30,7 +30,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.jetbrains.kmpapp.data.MuseumObject
+import kotlinx.serialization.Serializable
 import org.koin.androidx.compose.koinViewModel
+
+@Serializable
+object ListDestination
 
 @Composable
 fun ListScreen(navigateToDetails: (objectId: Int) -> Unit) {
