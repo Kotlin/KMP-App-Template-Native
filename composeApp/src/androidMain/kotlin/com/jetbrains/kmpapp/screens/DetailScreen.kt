@@ -38,11 +38,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.jetbrains.kmpapp.R
 import com.jetbrains.kmpapp.data.MuseumObject
-import kotlinx.serialization.Serializable
 import org.koin.androidx.compose.koinViewModel
-
-@Serializable
-data class DetailDestination(val objectId: Int)
 
 @Composable
 fun DetailScreen(objectId: Int, navigateBack: () -> Unit) {
