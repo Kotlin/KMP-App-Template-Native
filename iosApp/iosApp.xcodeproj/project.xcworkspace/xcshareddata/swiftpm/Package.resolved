@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rickclephas/KMP-ObservableViewModel",
       "state" : {
-        "revision" : "a94525baa10dfb5870d16b9a7155e0854deb705c",
-        "version" : "1.0.0-BETA-3"
+        "revision" : "805c41ff1305b02909c3b50a7e34a46b3c029c04",
+        "version" : "1.0.0-BETA-7"
       }
     }
   ],

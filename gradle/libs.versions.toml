@@ -1,13 +1,13 @@
 [versions]
-compose = "1.7.0"
-androidx-activityCompose = "1.9.2"
-androidx-navigationCompose = "2.8.0"
-androidx-viewmodelCompose = "2.8.5"
-koin = "3.5.6"
-ktor = "2.3.12"
+compose = "1.7.5"
+androidx-activityCompose = "1.9.3"
+androidx-navigationCompose = "2.8.3"
+androidx-viewmodelCompose = "2.8.7"
+koin = "4.0.0"
+ktor = "3.0.0"
 coil = "2.7.0"
-kmpObservableViewmodel = "1.0.0-BETA-3"
-skie = "0.8.0"
+kmpObservableViewmodel = "1.0.0-BETA-7"
+skie = "0.9.3"
 
 [libraries]
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
