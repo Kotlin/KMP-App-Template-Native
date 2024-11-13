@@ -21,13 +21,12 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
 import com.jetbrains.kmpapp.data.MuseumObject
 import org.koin.androidx.compose.koinViewModel
@@ -35,7 +34,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun ListScreen(navigateToDetails: (objectId: Int) -> Unit) {
     val viewModel: ListViewModel = koinViewModel()
-    val objects by viewModel.objects.collectAsState()
+    val objects by viewModel.objects.collectAsStateWithLifecycle()
 
     AnimatedContent(objects.isNotEmpty()) { objectsAvailable ->
         if (objectsAvailable) {
