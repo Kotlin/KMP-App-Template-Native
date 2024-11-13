@@ -4,7 +4,7 @@ dependencies:
   - ../shared
   - $compose.runtime
   - $compose.foundation
-  - $compose.material
+  - $compose.material3
   - $libs.compose.ui
   - $libs.compose.ui.tooling.preview
   - $libs.androidx.activity.compose
