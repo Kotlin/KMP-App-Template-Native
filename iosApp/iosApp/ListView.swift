@@ -74,3 +74,7 @@ struct ObjectFrame: View {
         }
     }
 }
+
+#Preview {
+    ListView()
+}

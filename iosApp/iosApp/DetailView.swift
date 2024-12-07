@@ -72,3 +72,7 @@ struct LabeledInfo: View {
         Text("**\(label):** \(data)")
     }
 }
+
+#Preview {
+    DetailView(objectId: 436535)
+}
