@@ -21,7 +21,7 @@ struct ListView: View {
                         LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
                             ForEach(viewModel.objects, id: \.self) { item in
                                 NavigationLink(destination: DetailView(objectId: item.objectID)) {
-                                    ObjectFrame(obj: item, onClick: {})
+                                    ObjectFrame(obj: item)
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
@@ -38,7 +38,6 @@ struct ListView: View {
 
 struct ObjectFrame: View {
     let obj: MuseumObject
-    let onClick: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
