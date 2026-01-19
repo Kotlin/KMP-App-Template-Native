@@ -1,17 +1,19 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.androidKmpLibrary)
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.kmpNativeCoroutines)
 }
 
 kotlin {
-    androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    androidLibrary {
+        namespace = "com.jetbrains.kmpapp.shared"
+        compileSdk = 36
+        minSdk = 24
+
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
@@ -48,17 +50,5 @@ kotlin {
             languageSettings.optIn("kotlinx.cinterop.ExperimentalForeignApi")
             languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
         }
-    }
-}
-
-android {
-    namespace = "com.jetbrains.kmpapp.shared"
-    compileSdk = 35
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    defaultConfig {
-        minSdk = 24
     }
 }

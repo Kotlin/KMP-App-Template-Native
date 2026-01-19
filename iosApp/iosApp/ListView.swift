@@ -20,13 +20,16 @@ struct ListView: View {
                     ScrollView {
                         LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
                             ForEach(viewModel.objects, id: \.self) { item in
-                                NavigationLink(destination: DetailView(objectId: item.objectID)) {
+                                NavigationLink(value: item.objectID) {
                                     ObjectFrame(obj: item)
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
                         }
                         .padding(.horizontal)
+                    }
+                    .navigationDestination(for: Int32.self) { objectId in
+                        DetailView(objectId: objectId)
                     }
                 }
             } else {
@@ -41,26 +44,24 @@ struct ObjectFrame: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            GeometryReader { geometry in
-                AsyncImage(url: URL(string: obj.primaryImageSmall)) { phase in
-                    switch phase {
-                    case .empty:
-                        ProgressView()
-                            .frame(width: geometry.size.width, height: geometry.size.width)
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: geometry.size.width, height: geometry.size.width)
-                            .clipped()
-                            .aspectRatio(1, contentMode: .fill)
-                    default:
-                        EmptyView()
-                            .frame(width: geometry.size.width, height: geometry.size.width)
-                    }
+            AsyncImage(url: URL(string: obj.primaryImageSmall)) { phase in
+                switch phase {
+                case .empty:
+                    ProgressView()
+                        .frame(maxWidth: .infinity)
+                        .aspectRatio(1, contentMode: .fit)
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFill()
+                case .failure:
+                    EmptyView()
+                        .frame(maxWidth: .infinity)
+                        .aspectRatio(1, contentMode: .fit)
                 }
             }
             .aspectRatio(1, contentMode: .fit)
+            .clipped()
 
             Text(obj.title)
                 .font(.headline)

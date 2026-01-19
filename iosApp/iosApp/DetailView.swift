@@ -18,7 +18,7 @@ struct DetailView: View {
                 ObjectDetails(obj: obj)
             }
         }
-        .onAppear {
+        .task {
             viewModel.setId(objectId: objectId)
         }
     }
