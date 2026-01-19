@@ -2,24 +2,41 @@ import Foundation
 import SwiftUI
 import Shared
 import KMPNativeCoroutinesAsync
-import KMPObservableViewModelSwiftUI
 
 struct DetailView: View {
-    @StateViewModel
-    var viewModel = DetailViewModel(
-        museumRepository: KoinDependencies().museumRepository
-    )
+    @StateObject private var viewModelStoreOwner = IosViewModelStoreOwner()
+
+    @State private var museumObject: MuseumObject?
 
     let objectId: Int32
 
+    private var viewModel: DetailViewModel {
+        viewModelStoreOwner.viewModel(factory: KoinDependencies().detailViewModelFactory)
+    }
+
     var body: some View {
-        VStack {
-            if let obj = viewModel.museumObject {
+        ZStack {
+            if let obj = museumObject {
                 ObjectDetails(obj: obj)
+            } else {
+                EmptyScreenContent()
             }
         }
-        .onAppear {
+        .task {
             viewModel.setId(objectId: objectId)
+            await observeMuseumObject()
+        }
+    }
+
+    @MainActor
+    private func observeMuseumObject() async {
+        do {
+            let stream = asyncSequence(for: viewModel.museumObjectFlow)
+            for try await newObject in stream {
+                self.museumObject = newObject
+            }
+        } catch {
+            print("Failed observing museum object: \(error)")
         }
     }
 }
@@ -29,25 +46,26 @@ struct ObjectDetails: View {
 
     var body: some View {
         ScrollView {
-
-            VStack {
+            VStack(alignment: .leading, spacing: 0) {
                 AsyncImage(url: URL(string: obj.primaryImageSmall)) { phase in
                     switch phase {
-                    case .empty:
-                        ProgressView()
                     case .success(let image):
                         image
                             .resizable()
-                            .scaledToFill()
-                            .clipped()
+                            .scaledToFit()
                     default:
-                        EmptyView()
+                        Color(white: 0.9)
+                            .frame(height: 300)
                     }
                 }
+                .frame(maxWidth: .infinity)
+                .background(Color(white: 0.9))
 
-                VStack(alignment: .leading, spacing: 6) {
+                VStack(alignment: .leading, spacing: 0) {
                     Text(obj.title)
                         .font(.title)
+
+                    Spacer().frame(height: 6)
 
                     LabeledInfo(label: "Artist", data: obj.artistDisplayName)
                     LabeledInfo(label: "Date", data: obj.objectDate)
@@ -57,7 +75,7 @@ struct ObjectDetails: View {
                     LabeledInfo(label: "Repository", data: obj.repository)
                     LabeledInfo(label: "Credits", data: obj.creditLine)
                 }
-                .padding(16)
+                .padding(12)
             }
         }
     }
@@ -68,7 +86,11 @@ struct LabeledInfo: View {
     var data: String
 
     var body: some View {
-        Spacer()
-        Text("**\(label):** \(data)")
+        VStack(alignment: .leading) {
+            Spacer().frame(height: 6)
+
+            Text("**\(label):** \(data)")
+        }
+        .padding(.vertical, 4)
     }
 }

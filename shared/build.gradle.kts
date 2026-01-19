@@ -1,17 +1,19 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.androidKmpLibrary)
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.kmpNativeCoroutines)
 }
 
 kotlin {
-    androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    androidLibrary {
+        namespace = "com.jetbrains.kmpapp.shared"
+        compileSdk = 36
+        minSdk = 24
+
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
@@ -25,6 +27,7 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "Shared"
             isStatic = true
+            export(libs.androidx.lifecycle.viewmodel)
         }
     }
 
@@ -40,25 +43,12 @@ kotlin {
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.koin.core)
-            api(libs.kmp.observable.viewmodel)
+            api(libs.androidx.lifecycle.viewmodel)
         }
 
-        // Required by KMM-ViewModel
+        // Required for iOS interop
         all {
             languageSettings.optIn("kotlinx.cinterop.ExperimentalForeignApi")
-            languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
         }
-    }
-}
-
-android {
-    namespace = "com.jetbrains.kmpapp.shared"
-    compileSdk = 35
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    defaultConfig {
-        minSdk = 24
     }
 }
