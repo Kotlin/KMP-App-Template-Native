@@ -3,21 +3,20 @@ agp = "9.0.0"
 android-compileSdk = "36"
 android-minSdk = "24"
 android-targetSdk = "36"
-androidx-activity = "1.12.3"
-androidx-lifecycle = "2.10.0-alpha08"
+androidx-activity = "1.12.4"
+androidx-lifecycle = "2.10.0-beta01"
 androidx-ui-tooling = "1.10.4"
 androidx-viewmodelCompose = "2.10.0"
-coil = "3.3.0"
+coil = "3.4.0"
 compose-material-icons = "1.7.3"
-compose-navigation = "2.9.1"
-composeMultiplatform = "1.10.1"
+compose-navigation = "2.9.7"
+composeMultiplatform = "1.10.2"
 koin = "4.1.1"
 kotlin = "2.3.10"
 kotlinx-serialization = "1.10.0"
 kmpObservableViewmodel = "1.0.2"
 kmpNativeCoroutines = "1.0.1"
-ktor = "3.4.0"
-ksp = "2.3.6"
+ktor = "3.4.1"
 material3 = "1.9.0"
 
 [libraries]
@@ -32,7 +31,6 @@ compose-material3 = { module = "org.jetbrains.compose.material3:material3", vers
 compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "composeMultiplatform" }
 compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "composeMultiplatform" }
 compose-uiTooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "composeMultiplatform" }
-compose-uiToolingPreview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "composeMultiplatform" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
@@ -54,4 +52,3 @@ composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMul
 kmpNativeCoroutines = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "kmpNativeCoroutines" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
