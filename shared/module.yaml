@@ -22,6 +22,3 @@ settings:
         # Required by KMP-ObservableViewModel
       - "kotlinx.cinterop.ExperimentalForeignApi"
       - "kotlin.experimental.ExperimentalObjCName"
-  ios:
-    framework:
-      basename: shared
