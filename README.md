@@ -7,7 +7,7 @@ This is a basic Kotlin Multiplatform app template for Android and iOS. It includ
 
 > The template is also available [with shared UI written in Compose Multiplatform](https://github.com/kotlin/KMP-App-Template).
 >
-> The [`amper` branch](https://github.com/Kotlin/KMP-App-Template-Native/tree/amper) showcases the same project configured with [Amper](https://github.com/JetBrains/amper).
+> The [`kotlin-toolchain` branch](https://github.com/Kotlin/KMP-App-Template-Native/tree/kotlin-toolchain) showcases the same project configured with the [Kotlin Toolchain](https://github.com/JetBrains/kotlin-toolchain).
 
 ![Screenshots of the app](images/screenshots.png)
 
