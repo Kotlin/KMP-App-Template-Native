@@ -1,5 +1,5 @@
 import SwiftUI
-import shared
+import KotlinModules
 
 @main
 struct iOSApp: App {

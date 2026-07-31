@@ -1,3 +1,4 @@
 modules:
   - androidApp
+  - iosApp
   - shared

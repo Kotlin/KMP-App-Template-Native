@@ -1,6 +1,5 @@
 import SwiftUI
-import KMPObservableViewModelSwiftUI
-import shared
+import KotlinModules
 
 struct ListView: View {
     let viewModel = ListViewModel(
@@ -34,9 +33,10 @@ struct ListView: View {
                 Text("No data available")
             }
         }.task {
-            for await objs in viewModel.objects {
-                objects = objs
+            let collector = FlowWatcher { value in
+                objects = (value as? [MuseumObject]) ?? []
             }
+            try? await viewModel.objects.collect(collector: collector)
         }
     }
 }

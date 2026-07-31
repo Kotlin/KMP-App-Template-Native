@@ -1,6 +1,6 @@
 import Foundation
 import SwiftUI
-import shared
+import KotlinModules
 
 struct DetailView: View {
     let viewModel = DetailViewModel(
@@ -18,9 +18,10 @@ struct DetailView: View {
                 ObjectDetails(obj: obj)
             }
         }.task {
-            for await obj in viewModel.getObject(objectId: objectId) {
-                object = obj!
+            let collector = FlowWatcher { value in
+                object = value as? MuseumObject
             }
+            try? await viewModel.getObject(objectId: objectId).collect(collector: collector)
         }
     }
 }
