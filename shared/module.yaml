@@ -1,6 +1,6 @@
 product:
   type: kmp/lib
-  platforms: [jvm, android, iosArm64, iosSimulatorArm64]
+  platforms: [jvm, android, iosArm64, iosSimulatorArm64, wasmJs]
 
 dependencies:
   - $libs.ktor.client.core
@@ -9,11 +9,17 @@ dependencies:
   - $libs.koin.core
   - $libs.kmp.observable.viewmodel: exported
 
+dependencies@jvm:
+  - $libs.ktor.client.okhttp
+
 dependencies@android:
   - $libs.ktor.client.okhttp
 
 dependencies@ios:
   - $libs.ktor.client.darwin
+
+dependencies@wasmJs:
+  - $libs.ktor.client.js
 
 settings:
   kotlin:

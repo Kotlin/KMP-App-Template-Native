@@ -1,18 +1,8 @@
 product: android/app
 
 dependencies:
-  - ../shared
-  - $compose.runtime
-  - $compose.foundation
-  - $compose.material3
-  - $libs.androidx.compose.ui.tooling.preview
+  - ../sharedUI
   - $libs.androidx.activity.compose
-  - $libs.androidx.viewmodel.compose
-  - $libs.androidx.navigation.compose
-  - $libs.koin.compose.viewmodel
-  - $libs.coil.compose
-  - $libs.coil.network.ktor
-  - $libs.material.icons.core
 
 settings:
   compose: enabled

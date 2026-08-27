@@ -1,0 +1,9 @@
+product: jvm/app
+
+dependencies:
+  - ../sharedUI
+  - $compose.desktop.currentOs
+  - $libs.kotlinx.coroutines.swing
+
+settings:
+  compose: enabled
