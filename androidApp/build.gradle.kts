@@ -3,23 +3,13 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeCompiler)
-    alias(libs.plugins.kotlinxSerialization)
 }
 
 dependencies {
-    implementation(projects.shared)
+    implementation(projects.sharedUI)
     implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.viewmodel.compose)
-    implementation(libs.androidx.navigation.compose)
-    implementation(libs.compose.foundation)
-    implementation(libs.compose.runtime)
-    implementation(libs.compose.material.icons.core)
-    implementation(libs.compose.material3)
-    implementation(libs.kotlinx.serialization.core)
-    implementation(libs.koin.compose.viewmodel)
-    implementation(libs.coil.compose)
-    implementation(libs.coil.network.ktor)
+    implementation(libs.compose.uiToolingPreview)
+    debugImplementation(libs.compose.uiTooling)
 }
 
 android {
