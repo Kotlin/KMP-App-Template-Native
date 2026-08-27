@@ -26,9 +26,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -36,13 +34,21 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
-import com.jetbrains.kmpapp.R
+import kmp_app_template_native.sharedui.generated.resources.Res
+import kmp_app_template_native.sharedui.generated.resources.back
+import kmp_app_template_native.sharedui.generated.resources.label_artist
+import kmp_app_template_native.sharedui.generated.resources.label_credits
+import kmp_app_template_native.sharedui.generated.resources.label_date
+import kmp_app_template_native.sharedui.generated.resources.label_department
+import kmp_app_template_native.sharedui.generated.resources.label_dimensions
+import kmp_app_template_native.sharedui.generated.resources.label_medium
+import kmp_app_template_native.sharedui.generated.resources.label_repository
+import org.jetbrains.compose.resources.stringResource
 import com.jetbrains.kmpapp.data.MuseumObject
-import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun DetailScreen(objectId: Int, navigateBack: () -> Unit) {
-    val viewModel: DetailViewModel = koinViewModel()
+    val viewModel = detailViewModel()
     val obj by viewModel.getObject(objectId).collectAsStateWithLifecycle(initialValue = null)
 
     AnimatedContent(obj != null) { objectAvailable ->
@@ -67,7 +73,7 @@ private fun ObjectDetails(
                 title = {},
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(R.string.back))
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(Res.string.back))
                     }
                 }
             )
@@ -85,20 +91,20 @@ private fun ObjectDetails(
                 contentScale = ContentScale.FillWidth,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color.LightGray)
+                    .background(placeholderColor(obj.objectID))
             )
 
             SelectionContainer {
                 Column(Modifier.padding(12.dp)) {
                     Text(obj.title, style = MaterialTheme.typography.headlineMedium)
                     Spacer(Modifier.height(6.dp))
-                    LabeledInfo(stringResource(R.string.label_artist), obj.artistDisplayName)
-                    LabeledInfo(stringResource(R.string.label_date), obj.objectDate)
-                    LabeledInfo(stringResource(R.string.label_dimensions), obj.dimensions)
-                    LabeledInfo(stringResource(R.string.label_medium), obj.medium)
-                    LabeledInfo(stringResource(R.string.label_department), obj.department)
-                    LabeledInfo(stringResource(R.string.label_repository), obj.repository)
-                    LabeledInfo(stringResource(R.string.label_credits), obj.creditLine)
+                    LabeledInfo(stringResource(Res.string.label_artist), obj.artistDisplayName)
+                    LabeledInfo(stringResource(Res.string.label_date), obj.objectDate)
+                    LabeledInfo(stringResource(Res.string.label_dimensions), obj.dimensions)
+                    LabeledInfo(stringResource(Res.string.label_medium), obj.medium)
+                    LabeledInfo(stringResource(Res.string.label_department), obj.department)
+                    LabeledInfo(stringResource(Res.string.label_repository), obj.repository)
+                    LabeledInfo(stringResource(Res.string.label_credits), obj.creditLine)
                 }
             }
         }

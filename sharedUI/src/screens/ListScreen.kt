@@ -23,17 +23,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
 import com.jetbrains.kmpapp.data.MuseumObject
-import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun ListScreen(navigateToDetails: (objectId: Int) -> Unit) {
-    val viewModel: ListViewModel = koinViewModel()
+    val viewModel = listViewModel()
     val objects by viewModel.objects.collectAsStateWithLifecycle()
 
     AnimatedContent(objects.isNotEmpty()) { objectsAvailable ->
@@ -89,7 +87,7 @@ private fun ObjectFrame(
             modifier = Modifier
                 .fillMaxWidth()
                 .aspectRatio(1f)
-                .background(Color.LightGray),
+                .background(placeholderColor(obj.objectID)),
         )
 
         Spacer(Modifier.height(2.dp))

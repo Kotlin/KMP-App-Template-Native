@@ -1,0 +1,26 @@
+product:
+  type: kmp/lib
+  platforms: [jvm, android, wasmJs]
+
+aliases:
+  - jvmAndAndroid: [jvm, android]
+
+dependencies:
+  - ../shared: exported
+  - $compose.runtime
+  - $compose.foundation
+  - $compose.material3
+  - $compose.components.resources
+  - $libs.androidx.lifecycle.runtime.compose
+  - $libs.androidx.lifecycle.viewmodel.compose
+  - $libs.navigation.compose
+  - $libs.koin.compose.viewmodel
+  - $libs.coil.compose
+  - $libs.coil.network.ktor
+  - $libs.material.icons.core
+
+settings:
+  compose:
+    enabled: true
+    resources:
+      packageName: kmp_app_template_native.sharedui.generated.resources

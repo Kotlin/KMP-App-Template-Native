@@ -1,6 +1,6 @@
 product:
   type: kmp/lib
-  platforms: [jvm, android, iosArm64, iosSimulatorArm64]
+  platforms: [jvm, android, iosArm64, iosSimulatorArm64, wasmJs]
 
 dependencies:
   - $libs.ktor.client.core
@@ -14,6 +14,9 @@ dependencies@android:
 
 dependencies@ios:
   - $libs.ktor.client.darwin
+
+dependencies@wasmJs:
+  - $libs.ktor.client.js
 
 settings:
   kotlin:
