@@ -5,6 +5,8 @@ import com.jetbrains.kmpapp.data.KtorMuseumApi
 import com.jetbrains.kmpapp.data.MuseumApi
 import com.jetbrains.kmpapp.data.MuseumRepository
 import com.jetbrains.kmpapp.data.MuseumStorage
+import com.jetbrains.kmpapp.screens.DetailViewModel
+import com.jetbrains.kmpapp.screens.ListViewModel
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.http.ContentType
@@ -34,12 +36,23 @@ val dataModule = module {
     }
 }
 
+/**
+ * The ViewModels that the Compose Multiplatform UI of the Android and desktop apps
+ * resolves with `koinViewModel()`. The iOS app creates its ViewModels itself, see
+ * `KoinDependencies`.
+ */
+val viewModelModule = module {
+    factory { ListViewModel(get()) }
+    factory { DetailViewModel(get()) }
+}
+
 fun initKoin() = initKoin(emptyList())
 
 fun initKoin(extraModules: List<Module>) {
     startKoin {
         modules(
             dataModule,
+            viewModelModule,
             *extraModules.toTypedArray(),
         )
     }

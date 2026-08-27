@@ -1,4 +1,7 @@
 modules:
   - androidApp
+  - desktopApp
   - iosApp
   - shared
+  - sharedUI
+  - webApp
