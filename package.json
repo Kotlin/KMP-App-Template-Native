@@ -1,0 +1,14 @@
+{
+  "name": "KMP-App-Template-Native",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "webApp",
+    "shared/build/dist/js/developmentLibrary"
+  ],
+  "scripts": {
+    "build:shared": "./gradlew :shared:jsBrowserDevelopmentLibraryDistribution",
+    "build": "npm run build:shared && npm run build -w webApp",
+    "start": "npm run build:shared && npm run start -w webApp"
+  }
+}

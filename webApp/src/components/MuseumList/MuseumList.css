@@ -1,0 +1,46 @@
+.museum-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.museum-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.museum-card-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background-color: lightgray;
+}
+
+.museum-card-title {
+  padding-top: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.museum-card-artist {
+  font-size: 14px;
+}
+
+.museum-card-date {
+  font-size: 12px;
+  color: #555;
+}
+
+.museum-message {
+  padding: 32px;
+  text-align: center;
+}
