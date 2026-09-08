@@ -417,7 +417,7 @@
 			repositoryURL = "https://github.com/rickclephas/KMP-ObservableViewModel";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.2;
+				version = 1.1.0;
 			};
 		};
 		EB50C48E2BE0EB69005DE781 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */ = {
