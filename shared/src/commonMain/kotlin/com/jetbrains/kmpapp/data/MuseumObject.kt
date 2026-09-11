@@ -1,7 +1,12 @@
+@file:OptIn(ExperimentalJsExport::class)
+
 package com.jetbrains.kmpapp.data
 
 import kotlinx.serialization.Serializable
+import kotlin.js.ExperimentalJsExport
+import kotlin.js.JsExport
 
+@JsExport
 @Serializable
 data class MuseumObject(
     val objectID: Int,

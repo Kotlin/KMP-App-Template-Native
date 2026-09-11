@@ -32,12 +32,31 @@ kotlin {
         }
     }
 
+    jvm()
+
+    js {
+        outputModuleName = "shared"
+        browser()
+        binaries.library()
+        generateTypeScriptDefinitions()
+        compilerOptions {
+            target = "es2015"
+            optIn.add("kotlin.js.ExperimentalJsExport")
+        }
+    }
+
     sourceSets {
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
+        }
+        jvmMain.dependencies {
+            implementation(libs.ktor.client.okhttp)
+        }
+        jsMain.dependencies {
+            implementation(libs.ktor.client.js)
         }
         commonMain.dependencies {
             implementation(libs.ktor.client.core)
